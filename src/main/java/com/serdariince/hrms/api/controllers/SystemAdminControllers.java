@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.serdariince.hrms.business.abstracts.SystemAdminService;
 import com.serdariince.hrms.core.api.BaseControllers;
+import com.serdariince.hrms.core.utilities.result.DataResultBase;
 import com.serdariince.hrms.entities.conretes.SystemAdmin;
 @RestController
 @RequestMapping("/admin")
@@ -18,6 +19,12 @@ public class SystemAdminControllers implements BaseControllers<SystemAdmin> {
 
 	@Autowired
 	private SystemAdminService<SystemAdmin> systemAdminService;
+	
+	@GetMapping	
+	public DataResultBase<List<SystemAdmin>> home () {
+
+		return systemAdminService.getall();
+	}
 
 	@GetMapping("/getall")	
 	@Override
@@ -25,7 +32,6 @@ public class SystemAdminControllers implements BaseControllers<SystemAdmin> {
 
 		return systemAdminService.getall().data();
 	}
-
 
 	@PostMapping("/add")
 	@Override

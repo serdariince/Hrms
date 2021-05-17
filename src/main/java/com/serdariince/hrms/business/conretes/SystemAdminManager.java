@@ -20,11 +20,12 @@ public class SystemAdminManager implements SystemAdminService<SystemAdmin> {
 
 	@Override
 	public DataResultBase<List<SystemAdmin>> getall() {
-		return new SuccessDataResult<List<SystemAdmin>>(adminDao.findAll());
+		return new SuccessDataResult<List<SystemAdmin>>(adminDao.findAll()
+				,Messages.employeeAdded);
 	}
 
 	@Override
-	public DataResultBase<SystemAdmin> add(SystemAdmin systemAdmin) {
+	public DataResultBase<SystemAdmin> add( SystemAdmin systemAdmin) {
 
 		return new SuccessDataResult<SystemAdmin>(adminDao.save(systemAdmin), Messages.employeeAdded);
 	}
