@@ -23,7 +23,7 @@ public class EmployerManager implements EmployerService<Employer> {
 
 		return new SuccessDataResult<List<Employer>>(employerDao.findAll());
 	}
-
+ 
 	@Override
 	public DataResultBase<Employer> add(Employer employee) {
 
